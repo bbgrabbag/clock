@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>JS + CSS Clock</title>
+</head>
+
+<body>
+  <div class="clock">
+    <div class="clock-face">
+      <div class="number">12</div>
+      <div class="middle-wrapper">
+        <div class="number">9</div>
+        <div class="centerpiece"></div>
+        <div class="number">3</div>
+      </div>
+      <div class="number">6</div>
+      <div class="dot-wrapper pos-1">
+        <div class="dot"></div>
+      </div>
+      <div class="dot-wrapper pos-2">
+        <div class="dot"></div>
+      </div>
+      <div class="dot-wrapper pos-4">
+        <div class="dot"></div>
+      </div>
+      <div class="dot-wrapper pos-5">
+        <div class="dot"></div>
+      </div>
+      <div class="dot-wrapper pos-7">
+        <div class="dot"></div>
+      </div>
+      <div class="dot-wrapper pos-8">
+        <div class="dot"></div>
+      </div>
+      <div class="dot-wrapper pos-10">
+        <div class="dot"></div>
+      </div>
+      <div class="dot-wrapper pos-11">
+        <div class="dot"></div>
+      </div>
+      <div class="hand hour-hand"></div>
+      <div class="hand min-hand"></div>
+      <div class="hand second-hand"></div>
+    </div>
+  </div>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    
+    html {
+      font-family: 'helvetica neue';
+      text-align: center;
+      font-size: 10px;
+      background-image: url("escheresque_ste.png");
+      background-size: cover;
+    }
+    
+    body {
+      margin: 0;
+      font-size: 2rem;
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      min-height: 100vh;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .top {
+      font-weight: 800;
+    }
+    
+    .middle-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    
+    .clock {
+      width: 21rem;
+      height: 21rem;
+      border: 20px solid firebrick;
+      border-radius: 50%;
+      margin: 5px auto;
+      position: relative;
+      padding: 2rem;
+      background-color: #EFEFEF;
+      box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #EFEFEF, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .clock-face {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      transform: translateY(-2px);
+      /* account for the height of the clock hands */
+    }
+    
+    .centerpiece {
+      width: 10px;
+      height: 10px;
+      background-color: goldenrod;
+      align-self: center;
+      z-index: 2;
+      border-radius: 50%;
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1)
+    }
+    
+    .number {
+      font-weight: 800;
+      font-size: 16px;
+    }
+    
+    .dot-wrapper {
+      top: 50%;
+      position: absolute;
+      display: flex;
+      align-items: flex-start;
+      width: 25%;
+      transform-origin: 200%;
+      transform: rotate(90deg);
+    }
+    
+    .dot {
+      width: 4px;
+      height: 2px;
+      background-color: black;
+      border-radius: 50%;
+      padding-left: 10px;
+      margin-left: 5px;
+    }
+    
+    .pos-1 {
+      transform: rotate(120deg);
+    }
+    
+    .pos-2 {
+      transform: rotate(150deg);
+    }
+    
+    .pos-4 {
+      transform: rotate(210deg);
+    }
+    
+    .pos-5 {
+      transform: rotate(240deg);
+    }
+    
+    .pos-7 {
+      transform: rotate(300deg);
+    }
+    
+    .pos-8 {
+      transform: rotate(330deg);
+    }
+    
+    .pos-10 {
+      transform: rotate(390deg);
+    }
+    
+    .pos-11 {
+      transform: rotate(420deg);
+    }
+    
+    .hand {
+      width: 50%;
+      height: 1px;
+      background: black;
+      position: absolute;
+      left: 9%;
+      top: 50%;
+      transform-origin: 82%;
+      transition: all 0.05s;
+      transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+    }
+    
+    .hour-hand {
+      width: 33%;
+      height: 2px;
+      left: 27%;
+      transform-origin: 70.66%;
+      transition: none !important;
+    }
+    
+    .min-hand {
+      width: 42%;
+      height: 2px;
+      left: 15.5%;
+      transform-origin: 82.5%;
+      transition: none !important;
+    }
+  </style>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
